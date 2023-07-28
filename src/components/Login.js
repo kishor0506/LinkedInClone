@@ -59,6 +59,7 @@ margin-right: 12px;
 
 const SignIn = styled.a`
 padding: 10px 15px;
+margin: auto;
 `;
 
 
