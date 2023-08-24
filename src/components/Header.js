@@ -17,6 +17,41 @@ const Header = (props) => {
           <img src="/Images/search-icon.svg" alt=""/>
         </SearchIcon>
       </Search>
+      <Nav>
+        <NavListWrap>
+          <NavList className='active'>
+            <a> 
+              <img src="/Images/nav-home.svg" alt=""/>
+              <span >Home </span>
+            </a>
+          </NavList>
+          <NavList>
+            <a> 
+              <img src="/Images/nav-network.svg" alt=""/>
+              <span>My Network</span>
+            </a>
+          </NavList>
+          <NavList>
+            <a> 
+              <img src="/Images/nav-jobs.svg" alt=""/>
+              <span>Jobs</span>
+            </a>
+          </NavList>
+          <NavList>
+            <a> 
+              <img src="/Images/nav-messaging.svg" alt=""/>
+              <span>Messaging</span>
+            </a>
+          </NavList>
+          <NavList>
+            <a> 
+              <img src="/Images/nav-notifications.svg" alt=""/>
+              <span>Notifications</span>
+            </a>
+          </NavList>
+          <User></User>
+        </NavListWrap>
+      </Nav>
       </Content>
     </Container>
   );
@@ -81,6 +116,74 @@ justify-content: center;
 align-items: center;
 transition: background-color 0.15s;
 
+`
+const Nav = styled.div `
+margin-left: auto;
+display: block;
+@media (max-width:768px){
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+
+}
 
 `
+const NavListWrap = styled.ul`
+display: flex;
+flex-wrap: nowrap;
+list-style-type: none;
+
+.active{
+  span:after{
+    content: " ";
+    transform: scaleX(1);
+    border-bottom: 2px solid var(--white,#fff);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+    border-color: rgba(0,0,0,0.9);
+  }
+}
+`
+const NavList = styled.li`
+display: flex;
+align-items: center;
+a {
+align-items: center;
+justify-content: center;
+position: relative;
+background: transparent;
+flex-direction: column;
+line-height: 1.5;
+min-height: 52px;
+min-width: 80px;
+display: flex;
+font-size: 12px;
+font-weight: 400;
+text-decoration: none;
+
+span{
+  display: flex;
+  align-items: center;
+  color: rgba(0,0,0,0.6);
+}
+@media (max-width:768px) {
+  min-width: 70px;
+}
+}
+&:hover,
+&:active{
+  a{
+    span{
+      color: rgba(0,0,0,0.9)
+    }
+  }
+
+}
+`
+const User = styled.div``
 export default Header;
