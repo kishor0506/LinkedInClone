@@ -49,7 +49,25 @@ const Header = (props) => {
               <span>Notifications</span>
             </a>
           </NavList>
-          <User></User>
+          <User>
+              <a>
+                <img src="/images/user.svg" alt="" />
+                <span>Me</span>
+                <img src="/images/down-icon.svg" alt="" />
+              </a>
+              <Signout><a>Signout</a></Signout>
+             
+            </User>
+
+            <Work>
+              <a>
+                <img src="/images/nav-work.svg" alt="" />
+                <span>
+                  Work
+                  <img src="/images/down-icon.svg" alt="" />
+                </span>
+              </a>
+            </Work>
         </NavListWrap>
       </Nav>
       </Content>
@@ -149,6 +167,23 @@ list-style-type: none;
   }
 }
 `
+const Signout = styled.div`
+position: absolute;
+background: white;
+top:45px;
+border-radius: 0 0 5px 5px;
+width: 100px;
+height: 40px;
+font-size: 16px;
+transition-duration: 167ms;
+text-align: center;
+display: none;
+justify-content: center;
+
+align-items: center;
+`
+
+
 const NavList = styled.li`
 display: flex;
 align-items: center;
@@ -185,5 +220,34 @@ span{
 
 }
 `
-const User = styled.div``
+const User = styled(NavList)`
+ a >svg{
+  width: 24px;
+  border-radius: 50%;
+ }
+ a >  img{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+ }
+ span {
+  display: flex;
+  align-items: center;
+ }
+
+ &:hover{
+  ${Signout}{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+  }
+ }
+`
+
+const Work = styled(User)`
+border-left: 1px solid rgba(0,0,0,0.08) ;
+`
+
+
 export default Header;
